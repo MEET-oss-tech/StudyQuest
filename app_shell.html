@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyQuest — Gamified Study Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <svg style="display: none" aria-hidden="true">
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M4 11.5 12 4l8 7.5" />
+        <path
+          d="M6 10v9.5a.5.5 0 0 0 .5.5H10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h3.5a.5.5 0 0 0 .5-.5V10"
+        />
+      </symbol>
+      <symbol id="icon-dashboard" viewBox="0 0 24 24">
+        <rect x="4" y="13" width="4" height="7" rx="1" />
+        <rect x="10" y="9" width="4" height="11" rx="1" />
+        <rect x="16" y="5" width="4" height="15" rx="1" />
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 0-2 2z" />
+        <path d="M12 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2h-6" />
+      </symbol>
+      <symbol id="icon-trending-up" viewBox="0 0 24 24">
+        <path d="M4 16l5-5 4 4 7-8" />
+        <path d="M15 6h5v5" />
+      </symbol>
+      <symbol id="icon-trophy" viewBox="0 0 24 24">
+        <path d="M8 4h8v3a4 4 0 0 1-8 0z" />
+        <path d="M8 5H5a2.5 2.5 0 0 0 3 3.5" />
+        <path d="M16 5h3a2.5 2.5 0 0 1-3 3.5" />
+        <path d="M12 11v3" />
+        <path d="M9 20h6" />
+        <path d="M10 20l.7-3" />
+        <path d="M14 20l-.7-3" />
+      </symbol>
+      <symbol id="icon-timer" viewBox="0 0 24 24">
+        <circle cx="12" cy="13" r="8" />
+        <path d="M12 9v4l3 2" />
+        <path d="M9 2h6" />
+        <path d="M12 2v3" />
+      </symbol>
+      <symbol id="icon-flag" viewBox="0 0 24 24">
+        <path d="M6 3v18" />
+        <path d="M6 4h10l-2.5 4L16 12H6" />
+      </symbol>
+      <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" />
+        <path
+          d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.4-2-3.4-2.3.7a7.5 7.5 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.5 7.5 0 0 0-1.7 1l-2.3-.7-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.4 2 3.4 2.3-.7a7.5 7.5 0 0 0 1.7 1L11 21h4l.4-2.9a7.5 7.5 0 0 0 1.7-1l2.3.7 2-3.4z"
+        />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" />
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"
+        />
+      </symbol>
+      <symbol id="icon-flame" viewBox="0 0 24 24">
+        <path
+          d="M12 21c4 0 6-2.3 6-5.6 0-2.6-1.6-4.4-2.7-5.9-.4 1.6-1.3 2.2-1.8.9C13 8 12.3 6 10.5 4.3 10.7 7 8.7 8 8 10.3 6.9 11.8 6 13.4 6 15.4 6 18.7 8 21 12 21z"
+        />
+      </symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24">
+        <path d="M13 2 4 14h6l-1 8 9-12h-6z" />
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="9" r="5" />
+        <path d="M9 13.5 7 21l5-3 5 3-2-7.5" />
+      </symbol>
+      <symbol id="icon-book-open" viewBox="0 0 24 24">
+        <path
+          d="M12 6c-1.5-1.3-3.5-2-6-2v13c2.5 0 4.5.7 6 2 1.5-1.3 3.5-2 6-2V4c-2.5 0-4.5.7-6 2z"
+        />
+        <path d="M12 6v13" />
+      </symbol>
+      <symbol id="icon-checklist" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <path d="M8 12l2.5 2.5L16 9" />
+      </symbol>
+      <symbol id="icon-sparkle" viewBox="0 0 24 24">
+        <path d="M12 3l1.2 4.8L18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2z" />
+        <path d="M19 15l.6 2.4L22 18l-2.4.6L19 21l-.6-2.4L16 18l2.4-.6z" />
+      </symbol>
+      <symbol id="icon-clipboard" viewBox="0 0 24 24">
+        <rect x="6" y="4" width="12" height="17" rx="2" />
+        <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1" />
+        <path d="M9 10h6M9 14h6M9 18h3" />
+      </symbol>
+      <symbol id="icon-edit" viewBox="0 0 24 24">
+        <path d="M4 20l.9-3.6L16 5.3l2.7 2.7L7.6 19.1z" />
+        <path d="M14.3 6.9l2.7 2.7" />
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <path d="M5 7h14" />
+        <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+        <path d="M7 7l1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13" />
+        <path d="M10 11v6M14 11v6" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="M4 12.5l5 5L20 6.5" />
+      </symbol>
+      <symbol id="icon-undo" viewBox="0 0 24 24">
+        <path d="M4 9a8 8 0 1 1 1.4 6.7" />
+        <path d="M4 4v5h5" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M5 5l14 14" />
+        <path d="M19 5 5 19" />
+      </symbol>
+    </svg>
+
+    <div class="app" id="app">
+
+      <header class="mobile-bar">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-brand">
+          <span class="brand-mark">SQ</span>
+          <span class="brand-name">StudyQuest</span>
+        </div>
+        <button
+          class="icon-btn"
+          id="mobileThemeToggle"
+          aria-label="Toggle theme"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+      </header>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <span class="brand-mark">SQ</span>
+          <div>
+            <p class="brand-name">StudyQuest</p>
+            <p class="brand-sub">Level up your learning</p>
+          </div>
+        </div>
+
+        <nav class="nav" id="navList">
+          <button class="nav-item active" data-section="home">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-home"></use></svg></span
+            ><span>Home</span>
+          </button>
+          <button class="nav-item" data-section="dashboard">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-dashboard"></use></svg></span
+            ><span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-section="missions">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-target"></use></svg></span
+            ><span>Missions</span>
+          </button>
+          <button class="nav-item" data-section="subjects">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-book"></use></svg></span
+            ><span>Subjects</span>
+          </button>
+          <button class="nav-item" data-section="progress">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-trending-up"></use></svg></span
+            ><span>Progress</span>
+          </button>
+          <button class="nav-item" data-section="achievements">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-trophy"></use></svg></span
+            ><span>Achievements</span>
+          </button>
+          <button class="nav-item" data-section="focus">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-timer"></use></svg></span
+            ><span>Focus Mode</span>
+          </button>
+          <button class="nav-item" data-section="goals">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-flag"></use></svg></span
+            ><span>Goals</span>
+          </button>
+          <button class="nav-item" data-section="settings">
+            <span class="nav-ico"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#icon-settings"></use></svg></span
+            ><span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="mini-level" id="sidebarLevelBadge">
+            <div class="hex-badge"><span id="sidebarLevelNum">1</span></div>
+            <div class="mini-level-text">
+              <p class="mini-level-name" id="sidebarUserName">Player</p>
+              <p class="mini-level-sub">
+                <svg
+                  class="icon icon-sm"
+                  aria-hidden="true"
+                  style="color: var(--coral)"
+                >
+                  <use href="#icon-flame"></use></svg>
+                <span id="sidebarStreakNum">0</span> day streak
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="topbar">
+          <h1 class="topbar-title" id="topbarTitle">Home</h1>
+          <div class="topbar-actions">
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+              <svg class="icon" aria-hidden="true">
+                <use href="#icon-moon"></use>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main class="content">
+
+      <main class="content">
+        <section class="view active" id="view-home">
+          <h2>Welcome to StudyQuest</h2>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
